@@ -1,9 +1,9 @@
-import { useDispatch, useSelector } from "react-redux";
-import CartContainer from "./components/CartContainer";
-import Navbar from "./components/Navbar";
-import { useEffect } from "react";
-import { calculateTotals, getCartItems } from "./features/cart/cartSlice";
-import Modal from "./components/Modal";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import CartContainer from './components/CartContainer';
+import Navbar from './components/Navbar';
+import { calculateTotals, getCartItems } from './features/cart/cartSlice';
+import Modal from './components/Modal';
 
 function App() {
   const { isOpen, isLoading } = useSelector((store) => store.modal);
@@ -12,19 +12,19 @@ function App() {
 
   useEffect(() => {
     dispatch(calculateTotals());
-  }, [cartItems]);
+  }, [cartItems, dispatch]);
 
   useEffect(() => {
     dispatch(getCartItems());
-  }, []);
+  }, [dispatch]);
 
   if (isLoading) {
     return (
       <div>
         <h1>Loading...</h1>
       </div>
-    )
-  };
+    );
+  }
 
   return (
     <main>
@@ -32,7 +32,7 @@ function App() {
       <Navbar />
       <CartContainer />
     </main>
-  )
-};
+  );
+}
 
 export default App;
