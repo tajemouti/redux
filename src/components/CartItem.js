@@ -56,10 +56,10 @@ const CartItem = ({
 };
 
 CartItem.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.string.isRequired,
   img: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
+  price: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
 };
 
